@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>chat</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- jQuery library -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+     
+     
+     
+    </style>
+</head>
+<body >
+
+
+  <!-- Private Messaging -->
+  
+
+  <form action="" id="private">
+    <p>Enter your user name</p>
+    <input type="text" id="name">
+    <input type="password" id="password">
+    <input type="submit" id="login">
+  </form>
+   
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+   
+     $("#login").click(function(){
+      var name = $("#name").val();
+      var password = $("#password").val();
+      socket.emit('newuser',{username:name,pass:password});
+     });
+     socket.on('authenticated', function() {
+      
+     });
+    //
+</script>
+</script>
+
+</body>
+</html>
