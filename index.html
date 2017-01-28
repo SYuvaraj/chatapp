@@ -1,58 +1,66 @@
 <html>
 <head>
-  <title>chat</title>
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <title>Chat</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-     
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-
-      #contentWrap{
-        display: none;
-      }
-      #chatWrap{
-        float:left;
-        border:1px solid red;
-      }
-    </style>
 </head>
-<body >
-<ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+<body>
+  <div class="main-container">
+    <div class="wrapper">
+      <form action="
+      ">
+      <div class="left-pane">
+        <div class="menu-block"><img class="menu-icon" src="images/menu.png" alt="menu"></div>
+        <ul>
+          <li>
+            <div class="active-usrimg"><img src="images/active-user.png" alt="active user"></div>
+            <div class="active-usrname">Jimmy</div>
+            <div class="active"></div>  
+            <div class="inactive"></div>
+          </li>
+        </ul>
 
-  <!-- Private Messaging -->
- 
+      </div>
+      <div class="right-pane">
+        <ul class="bot-box">
+          <li>
+            <div class="chatbot-pic"><img src="images/chatbot.png" alt="chatbot"></div>
+            <div class="chatbot-txt">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div class="arrow"></div>
+              <div class="time">9:00</div>
+            </div>
+          </li>
+        </ul>
+        <ul class="usr-box"> 
+          <li>
 
-  
-   
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-  $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
-  socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
-  });
-</script>
-</script>
-
+            <div class="user-txt">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div class="usrarrow"></div>
+              <div class="usrtime">9:00</div>
+              
+            </div>
+            <div class="user-pic"><img src="images/user-icon.png" alt="user"></div>
+            
+          </li>
+        </ul>
+        <input type="text" class="input-msg" placeholder="Your message here...">
+      </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 </html>
