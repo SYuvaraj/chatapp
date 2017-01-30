@@ -1,0 +1,113 @@
+<html>
+<head>
+  <title>Bot</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</head>
+<body  ng-app="bot" ng-controller="botCtrl">
+  <div class="main-container">
+    <div class="wrapper">
+
+      <form action="" >
+      <div class="left-pane">
+        <div class="menu-block"><img class="menu-icon" src="images/menu.png" alt="menu"></div>
+        <ul>
+          <li>
+            <div class="active-usrimg"><img src="images/active-user.png" alt="active user"></div>
+            <div class="active-usrname">Jimmy</div>
+            <div class="active"></div>  
+            <div class="inactive"></div>
+          </li>
+        </ul>
+
+      </div>
+      <div class="right-pane">
+        <ul class="bot-box">
+          <li>
+            <div class="chatbot-pic"><img src="images/chatbot.png" alt="chatbot"></div>
+            <div class="chatbot-txt">
+            Hello!!! I'm bot how can I help you ?
+              <div class="arrow"></div>
+              <div class="time">{{date| date:'HH:mm'}}</div>
+            </div>
+          </li>
+        </ul>
+        
+        <ul class="usr-box" ng-if = "visible"> 
+          <li>
+
+            <div class="user-txt">
+              {{usrinput}}
+              <div class="usrarrow"></div>
+              <div class="usrtime">9:00</div>
+              
+            </div>
+            <div class="user-pic"><img src="images/user-icon.png" alt="user"></div>
+            
+          </li>
+        </ul>
+        <ul class="bot-box">
+          <li ng-if="response">
+            <div class="chatbot-pic"><img src="images/chatbot.png" alt="chatbot"></div>
+            <div class="chatbot-txt">
+            {{responseMsg}}
+              <div class="arrow"></div>
+              <div class="time">{{date| date:'HH:mm'}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="submit-wrap">
+          <input type="text" class="input-msg" placeholder="Your message here..." ng-model="usrinput">
+        <div class="submit-icon" ng-click="showMsg()"></div> 
+
+        </div>
+        
+      </div>
+      </form>
+    </div>
+  </div>
+ 
+  <script>
+  var app = angular.module('bot', []);
+    app.controller('botCtrl', function($scope,$timeout) {
+      $scope.response = false;
+      var predictive = {
+        whatsyourname: "Ibot"
+      }
+      
+      $scope.visible = false;
+      $scope.date = new Date();
+
+
+        $scope.showMsg = function(){
+
+          console.log('userinput', $scope.usrinput);
+          console.log("repsonse",predictive.whatsyourname);
+
+          if ($scope.usrinput != ""){
+
+            $scope.visible = true;   
+            
+             
+          }
+          if( $scope.usrinput === "whatsyourname"){
+            $timeout(function(){
+               $scope.responseMsg = predictive.whatsyourname;
+             $scope.response = true;
+            },1500);
+            
+           }
+
+          
+
+          
+         
+      }
+    });
+   
+  </script>
+</body>
+</html>
